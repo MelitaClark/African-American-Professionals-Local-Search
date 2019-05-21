@@ -1,0 +1,73 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.wrapper{
+    width: 1170px;
+    margin: auto;
+}
+header{
+    background:url('siteImages/backdrop.png');
+    height: 100vh;
+    background-size: cover;
+    background-position: center center;
+    position: relative;
+}
+
+.nav-area{
+    text-align: center;
+    list-style: none;
+    margin-top: 30px;
+}
+.nav-area li{
+    display: inline-block;
+}
+.nav-area li a{
+    color:rgb(36, 36, 145);
+    text-decoration: none;
+    padding: 5px 20px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 16px;
+    border: 1px solid black;
+    border-radius: 25px;
+    padding: 10px 25px;
+    text-transform: uppercase;
+    margin-top: 20px;
+}
+.nav-area li a:hover{
+    background: rgb(212, 223, 219);
+    color: #333;
+}
+.logo img{
+    width: 100px;
+    height: auto;
+    margin: 10px auto 20px;
+    display: block;
+}
+.welcomeText{
+    text-align: center;
+    margin-top: 60px;
+    padding-left: 40px;
+    padding-right: 40px;
+
+}
+.welcomeText h1{
+    text-align: center;
+    color: rgb(36, 36, 145);
+    text-transform: uppercase;
+    font-size: 30px;
+}
+.welcomeText a{
+    border: 1px solid black;
+    padding: 10px 25px;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 14px;
+    margin-top: 20px;
+    display: inline-block;
+    color: black;
+}
+.welcomeText a:hover{
+    background: rgb(194, 215, 210);
+    color: black;
+}
