@@ -1,72 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>African American Local Services Search (AALSS)</title>
-    <link href="style.css"  rel="stylesheet" type="text/css" />
+    <link href="styleHomePage.css"  rel="stylesheet" type="text/css" />
 </head>
-
 <body>
-        <ul class="nav-area">
-                <li><a href="homePage.html">Home</a></li>
+    <header>
+        <div class="wrapper">
+            <div class="logo">
+                <img src="siteImages/networkImage.png" alt="handshake">
+            </div>
+            <ul class="nav-area">
+                <li><a href="index.html">Home</a></li>
                 <li><a href="#">About</a></li>
-                <li><a href="index.html">Search Black Professionals</a></li>
+                <li><a href="searchPage.html">Search Black Professionals</a></li>
                 <li><a href="#">Submit A Black Business For Referral</a></li>
             </ul>
-<div class="wrapper">
-<section class="flexbox-container1">
-    <h1 role="banner" id="flexItem1">Search African American Local Services</h1>
-    <img id="flexItem2" src="siteImages/networkImage.png" alt="Web page logo, two hands shaking, implying working together" height="100" width="150">
-</section>  
-    <!--The Verticalbar-->
-    <div class="virtBar">
-        <p id="examples">Search Suggestions</p>
-        <ul id="professionalExamples">
-            <li>Dentist</li>
-            <li>Doctor</li>
-            <li>Salon</li>
-            <li>Handyman</li>
-            <li>Real Estate Agent</li>
-        </ul>
-    </div>
-
-    <!--Input Form Content-->
-    <div class="container">
-        <form id="inputForm">
-                <h2 id="formTitle">What Type Of Local African American Service Are You Looking For?</h1>
-                    <div class="flexbox-container2" id="inputFields">
-                        <input class="flexbox-item" id="flexbox-item1" type="text" placeholder="Enter Service (i.e.,Doctor)" required>
-                        <input class="flexbox-item" id="flexbox-item2" id="location" placeholder="Enter Zipcode" required>
-                        <button type="button" class="flexbox-item" id="flexbox-item3">Submit</button>
-                    </div>
-                </form>
-            </div> <!--Container Closed-->
-        </div>
-            <!--Results Content-->
-    <section hidden id="myResults">
-            <div id="resultsHeader">
-                    <h2>Search Results</h2>
-                    <input class="refreshMe" type="reset" value="Clear Results" onclick="reloadThePage()" />
-                    <div id="scroller">
-                            <div id="search-output" class="grid"></div>
-                    </div>
-    </section>
-    <!-- FOOTER -->
-    <footer class="flex-footer">
-
-        <div class="container">
-
-
         </div>
 
-    </footer>
+        <div class="welcomeText">
+            <h1>We Are African American Local Services Search (AALSS)<br> And We Are Dedicated To Connecting Our Community.</br></h1>
+            <a href="#">Contact Us</a>
+        </div>
+    </header>
 
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="dataStore.js"></script>
-    <script src="script.js"></script>
+    <script src="scriptHomePage.js"></script>
 </body>
-
 </html>
