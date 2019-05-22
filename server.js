@@ -22,10 +22,14 @@ app.use(morgan('common'));
 
 app.use(express.static('public'));
 
-app.get('/', (req, res) => {
-  res.sendFile(__dirname + '/views/index.html');
+//specify routes to POST new referral
+app.post("/postNewReferral", (request, response) => {
+  response.sendFile(__dirname + '/views/index.html');
 });
-
+//specify routes to GET referrals
+app.get("/", (request, response) => {
+  response.sendFile(__dirname + '/views/index.html');
+});
 
 // when requests come into `/shopping-list` or
 // `/recipes`, we'll route them to the express
