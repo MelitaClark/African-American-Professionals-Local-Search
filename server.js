@@ -120,10 +120,12 @@ app.use("*", function(req, res) {
 let server;
 
 // this function connects to our database, then starts the server
-function runServer(DatabaseUrl, port = PORT) {
+function runServer(DATABASE_URL
+  , port = PORT) {
   return new Promise((resolve, reject) => {
     mongoose.connect(
-      DatabaseUrl,
+      DATABASE_URL
+      ,
       err => {
         if (err) {
           return reject(err);

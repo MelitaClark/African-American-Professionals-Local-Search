@@ -13,7 +13,6 @@ const referralsSchema = mongoose.Schema({
     state: String,
     zipcode: String
   },
-  // grades will be an array of objects
   reviews: { type: String, required: true }
 });
 
@@ -22,18 +21,18 @@ const referralsSchema = mongoose.Schema({
 // properties that are stored in the database. Here we use it
 // to generate a human readable string based on the address object
 // we're storing in Mongo.
-referralsSchema.virtual("location").get(function() {
+/*referralsSchema.virtual('location').get(function() {
   return `${this.location.business_name} ${this.location.street}`.trim();
-});
+});*/
 
 // this virtual grabs the most recent grade for a restaurant.
-referralsSchema.virtual("reviews").get(function() {
+/*referralsSchema.virtual("reviews").get(function() {
   const reviewsObj =
     this.reviews.sort((a, b) => {
       return b.date - a.date;
     })[0] || {};
   return reviewsObj.reviews;
-});
+});*/
 
 // this is an *instance method* which will be available on all instances
 // of the model. This method will be used to return an object that only
