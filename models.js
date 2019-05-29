@@ -21,9 +21,9 @@ const referralsSchema = mongoose.Schema({
 // properties that are stored in the database. Here we use it
 // to generate a human readable string based on the address object
 // we're storing in Mongo.
-referralsSchema.virtual('location').get(function() {
+/*referralsSchema.virtual('location').get(function() {
   return `${this.location.street} ${this.location.city} ${this.location.state} ${this.location.zipcode}`.trim();
-});
+});*/
 
 // this virtual grabs the most recent grade for a restaurant.
 /*referralsSchema.virtual("reviews").get(function() {
@@ -51,6 +51,6 @@ referralsSchema.methods.serialize = function() {
 
 // note that all instance methods and virtual properties on our
 // schema must be defined *before* we make the call to `.model`.
-const Referrals = mongoose.models("Referrals", referralsSchema);
+const Referrals = mongoose.model("Referrals", referralsSchema);
 
 module.exports = { Referrals };
