@@ -21,9 +21,9 @@ const referralsSchema = mongoose.Schema({
 // properties that are stored in the database. Here we use it
 // to generate a human readable string based on the address object
 // we're storing in Mongo.
-/*referralsSchema.virtual('location').get(function() {
-  return `${this.location.business_name} ${this.location.street}`.trim();
-});*/
+referralsSchema.virtual('location').get(function() {
+  return `${this.location.street} ${this.location.city} ${this.location.state} ${this.location.zipcode}`.trim();
+});
 
 // this virtual grabs the most recent grade for a restaurant.
 /*referralsSchema.virtual("reviews").get(function() {
