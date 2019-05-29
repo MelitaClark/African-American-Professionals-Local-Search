@@ -20,7 +20,7 @@ app.get("/referrals", (req, res) => {
   Referrals.find()
     // we're limiting because referralss db has > 25,000
     // documents, and that's too much to process/return
-    .limit(10)
+    //.limit(10)
     // success callback: for each referrals we got back, we'll
     // call the `.serialize` instance method we've created in
     // models.js in order to only expose the data we want the API return.    

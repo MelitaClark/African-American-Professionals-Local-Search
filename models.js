@@ -43,13 +43,14 @@ referralsSchema.methods.serialize = function() {
     business_type: this.business_type,
     business_name: this.business_name,
     phone_number: this.phone_number,
+    email: this.email,
     reviews: this.reviews,
-    location: this.locationString
+    location: this.location
   };
 };
 
 // note that all instance methods and virtual properties on our
 // schema must be defined *before* we make the call to `.model`.
-const Referrals = mongoose.model("Referrals", referralsSchema);
+const Referrals = mongoose.models("Referrals", referralsSchema);
 
 module.exports = { Referrals };
