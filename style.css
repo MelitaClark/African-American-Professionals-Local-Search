@@ -53,9 +53,9 @@ body{
     align-items: center;
     align-content: center;
 }
-.flexbox-item{
+/*.flexbox-item{
 
-}
+}*/
 #flexbox-item1{
     width: 40%;
     margin-right: 20px;
@@ -65,9 +65,9 @@ body{
     width: 40%;
     text-align: center;
 }
-#flexbox-item3{
+/*#flexbox-item3{
 
-}
+}*/
 
 ul {
     list-style-type: none;
