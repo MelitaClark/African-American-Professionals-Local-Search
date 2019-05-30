@@ -9,11 +9,11 @@ const referralsSchema = mongoose.Schema({
   location: {
     street: String,
     // coord will be an array of string values
-    city: [String],
+    city: String,
     state: String,
     zipcode: String
   },
-  reviews: { type: String, required: true }
+  reviews: [{ type: String, required: true }]
 });
 
 // *virtuals* (http://mongoosejs.com/docs/guide.html#virtuals)
@@ -44,8 +44,8 @@ referralsSchema.methods.serialize = function() {
     business_name: this.business_name,
     phone_number: this.phone_number,
     email: this.email,
-    reviews: this.reviews,
-    location: this.location
+    location: this.location,
+    reviews: this.reviews
   };
 };
 

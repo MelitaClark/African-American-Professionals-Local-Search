@@ -74,7 +74,7 @@ app.post("/referrals", (req, res) => {
     });
 });
 
-app.put("/referralss/:id", (req, res) => {
+app.put("/referrals/:id", (req, res) => {
   // ensure that the id in the request path and the one in request body match
   if (!(req.params.id && req.body.id && req.params.id === req.body.id)) {
     const message =
