@@ -2,12 +2,13 @@
 
 const express = require("express");
 const mongoose = require("mongoose");
+const morgan = require('morgan');
 
 // Mongoose internally uses a promise-like object,
 // but its better to make Mongoose use built in es6 promises
 mongoose.Promise = global.Promise;
 
-app.use(express.static('public'));
+
 // config.js is where we control constants for entire
 // app like PORT and DATABASE_URL
 const { PORT, DATABASE_URL } = require("./config");
@@ -15,6 +16,14 @@ const { Referrals } = require("./models");
 
 const app = express();
 app.use(express.json());
+
+app.use(morgan('common'));
+
+app.use(express.static('public'));
+
+app.get('/', (req, res) => {
+  res.sendFile(__dirname + '/public/index.html');
+});
 
 // GET requests to /referrals => return 10 referrals
 app.get("/referrals", (req, res) => {
