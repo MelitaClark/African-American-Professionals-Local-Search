@@ -23,10 +23,10 @@ app.use(express.static('public'));
 
 app.get('/', (req, res) => {
   res.sendFile(__dirname + '/public/index.html');
-  console.log('PORT', PORT);
-  console.log('DATABASE_URL', DATABASE_URL);
+  
 });
-
+console.log('PORT', PORT);
+  console.log('DATABASE_URL', DATABASE_URL);
 // GET requests to /referrals => return 10 referrals
 app.get("/referrals", (req, res) => {
   Referrals.find()

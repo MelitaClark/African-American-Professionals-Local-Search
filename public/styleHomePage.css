@@ -5,7 +5,8 @@ body{
     background:url('siteImages/wall.jpg');
     background-repeat: no-repeat;
   background-size: cover;
-  overflow: hidden;
+  
+  overflow: scroll;
   margin: 0;
   text-align: center;
     
@@ -104,5 +105,19 @@ li{
        display: block;
         
        
+    }
+    .grid ul{
+        width: 100%;
+        display: grid;
+        position: center;
+        grid-template-columns: repeat(1, auto);
+        grid-gap: 15px;
+        
+        
+       
+    
+    }
+    body{
+        background-position: center;
     }
 }
