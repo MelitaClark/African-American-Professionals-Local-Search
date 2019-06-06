@@ -27,6 +27,7 @@ app.get('/', (req, res) => {
 });
 console.log('PORT', PORT);
   console.log('DATABASE_URL', DATABASE_URL);
+
 // GET requests to /referrals => return 10 referrals
 app.get("/referrals", (req, res) => {
   Referrals.find()
@@ -70,20 +71,21 @@ app.post("/referrals", (req, res) => {
       return res.status(400).send(message);
     }
   }
-
-  referrals.create({
+const referrals = new Referrals(req.body);
+  /*const referrals={
     business_type: req.body.business_type,
     business_name: req.body.business_name,
     phone_number: req.body.phone_number,
     email: req.body.email,
     location: req.body.location,
     reviews: req.body.reviews
-  })
-    .then(referrals => res.status(201).json(referrals.serialize()))
+  }*/
+   /* .then(referrals => res.status(201).json(referrals.serialize()))
     .catch(err => {
       console.error(err);
       res.status(500).json({ message: "Internal server error" });
-    });
+    });*/
+    referrals.save().then(res.send(referrals))
 });
 
 app.put("/referrals/:id", (req, res) => {
