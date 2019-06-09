@@ -4,6 +4,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const morgan = require('morgan');
 
+
 // Mongoose internally uses a promise-like object,
 // but its better to make Mongoose use built in es6 promises
 mongoose.Promise = global.Promise;
@@ -25,22 +26,14 @@ app.get('/', (req, res) => {
   res.sendFile(__dirname + '/public/index.html');
   
 });
-console.log('PORT', PORT);
-  console.log('DATABASE_URL', DATABASE_URL);
 
-// GET requests to /referrals => return 10 referrals
+// GET requests to /referrals 
 app.get("/referrals", (req, res) => {
-  Referrals.find()
-    // we're limiting because referralss db has > 25,000
-    // documents, and that's too much to process/return
-    //.limit(10)
-    // success callback: for each referrals we got back, we'll
-    // call the `.serialize` instance method we've created in
-    // models.js in order to only expose the data we want the API return.    
+  Referrals.find()  
     .then(referrals => {
       res.json({
         referrals: referrals.map(referrals => referrals.serialize())
-      });
+   });
     })
     .catch(err => {
       console.error(err);
@@ -71,21 +64,25 @@ app.post("/referrals", (req, res) => {
       return res.status(400).send(message);
     }
   }
+
+
 const referrals = new Referrals(req.body);
-  /*const referrals={
+//referrals.save().then(res.send(referrals))
+
+  Referrals.create({
     business_type: req.body.business_type,
     business_name: req.body.business_name,
     phone_number: req.body.phone_number,
     email: req.body.email,
-    location: req.body.location,
-    reviews: req.body.reviews
-  }*/
-   /* .then(referrals => res.status(201).json(referrals.serialize()))
+    location: req.body.location//,
+    //reviews: req.body.reviews
+  })
+   .then(referrals => res.status(201).json(referrals.serialize()))
     .catch(err => {
       console.error(err);
       res.status(500).json({ message: "Internal server error" });
-    });*/
-    referrals.save().then(res.send(referrals))
+    });
+   
 });
 
 app.put("/referrals/:id", (req, res) => {
@@ -117,8 +114,8 @@ app.put("/referrals/:id", (req, res) => {
     .catch(err => res.status(500).json({ message: "Internal server error" }));
 });
 
-app.delete("/referralss/:id", (req, res) => {
-  referrals.findByIdAndRemove(req.params.id)
+app.delete("/referrals/:id", (req, res) => {
+  Referrals.findByIdAndRemove(req.params.id)
     .then(referrals => res.status(204).end())
     .catch(err => res.status(500).json({ message: "Internal server error" }));
 });

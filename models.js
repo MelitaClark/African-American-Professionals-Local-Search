@@ -12,8 +12,8 @@ const referralsSchema = mongoose.Schema({
     city: String,
     state: String,
     zipcode: String
-  },
-  reviews: [{ type: String, required: true }]
+  }//,
+  //reviews: [{ user_1: String, required: true, reviewText: String }]
 });
 
 // *virtuals* (http://mongoosejs.com/docs/guide.html#virtuals)

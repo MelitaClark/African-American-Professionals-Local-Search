@@ -41,9 +41,9 @@ display: grid;
     font-size: 16px;
     border: 1px solid black;
     border-radius: 25px;
-    padding: 10px 25px;
+    padding: 2% ;
     text-transform: uppercase;
-    margin-top: 20px;
+    margin-top: 1vw;
     
     
 }
@@ -103,8 +103,14 @@ li{
 @media (max-width: 768px) {
     .nav-area li{
        display: block;
+       
         
        
+    }
+    li{
+        font-size: 5px;
+       /* text-size-adjust: auto;*/
+        
     }
     .grid ul{
         width: 100%;
@@ -114,9 +120,7 @@ li{
         grid-gap: 15px;
         
         
-       
-    
-    }
+       }
     body{
         background-position: center;
     }
