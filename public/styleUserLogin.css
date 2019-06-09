@@ -1,0 +1,114 @@
+@import "compass/css3";
+
+* {
+	box-sizing: border-box;
+}
+
+html {
+	background-color: #e5e8e7;
+  height: 100%;
+  overflow: hidden;
+  width: 100%;
+}
+
+.coming-soon {
+  	height: 105px;
+		left: 50%;
+  	margin-left: -256px;
+  	margin-top: -36px;
+  	overflow: hidden;
+  	position: absolute;
+      top: 50%;
+}
+  
+.coming-soon ::after {
+ 		border-radius: 100%;
+    	box-shadow: 0 -10px 10px 0 rgba(0,0,0,0.3);
+    	content: "";
+    	left: 15px;
+    	position: absolute;
+    	height: 10px;
+    	top: 109px;
+    	width: 320px;
+    }
+
+
+form {
+  	background: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.3));
+  	border: 1px solid rgba(0,0,0,0.3);
+  	border-radius: 6px;
+  	box-shadow: inset 0 1px 3px rgba(255,255,255,0.4),
+    									0 1px 3px rgba(0,0,0,0.45);
+  	padding: 10px;
+  	position: relative;
+  	animation: appear 1.5s ease;
+}
+  form ::after {
+    background: #e5e8e7;
+  	content: "";
+    height: 50px;
+    position: absolute;
+    top: 80px;
+    width: 350px;
+    z-index: 999;
+  }
+
+
+input {
+	border-radius: 5px;
+  height: 34px;
+  padding: 0;
+}
+
+input[type="email"] {
+  background: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.3));
+	border: 1px solid rgba(0,0,0,0.48);
+  box-shadow: inset 0 1px 2px rgba(0,0,0,0.4),
+    								0 1px 0 rgba(255,255,255,0.5);
+  padding-left: 10px;
+  width: 240px;
+  appearance: none;
+}
+input[type="email"] ::after -webkit-input-placeholder {
+  	color: rgba(0,0,0,0.6);
+  }
+  
+  input[type="email"] ::after moz-input-placeholder {
+  	color: rgba(0,0,0,0.6);
+  }
+  
+  input[type="email"] ::after focus {
+  	  background: linear-gradient(#d1d5d2, #fefefe);
+    	box-shadow: 0 1px 0 rgba(247, 132, 132, 0.5);
+    	outline: none;
+  }
+
+
+input[type="button"] {
+  background: linear-gradient(#58a9e2, #346cce);
+  border: 1px solid rgba(0,0,0,0.48);
+  box-shadow: inset 0 1px 3px rgba(255,255,255,0.4),
+    								0 1px 2px rgba(0,0,0,0.45);
+  color: #fff;
+  display: inline-block;
+  font-weight: bold;
+	height: 35px;
+  margin-left: 5px;
+  text-shadow: 0 -1px 0 rgba(0,0,0,0.2);
+  width: 76px;
+}
+input[type="button"]::after hover {
+  	background: linear-gradient(#6db1e1, #4375cc);
+  }
+  
+  input[type="button"]::after active {
+  	box-shadow: inset 0 1px 2px rgba(0,0,0,0.45),
+      								0 1px 3px rgba(255,255,255,0.4);
+  }
+
+
+
+
+
+
+
