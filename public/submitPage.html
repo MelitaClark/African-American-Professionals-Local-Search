@@ -5,22 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Submit Referral</title>
-    <link href="styleAboutPage.css" rel="stylesheet" type="text/css" />
+    <link href="styleSubmitPage.css" rel="stylesheet" type="text/css" />
   </head>
   <body>
-        <body>
-                <header>
-                    <div class="wrapper">
-                        <div class="logo">
-                            <img src="siteImages/networkImage.png" alt="handshake">
-                        </div>
-                        <ul class="nav-area">
-                            <li><a href="index.html">Home</a></li>
-                            <li><a href="aboutPage.html">About</a></li>
-                            <li><a href="searchPage.html">Search Black Professionals</a></li>
-                            <li><a href="submitPage.html">Submit A Black Business For Referral</a></li>
-                        </ul>
-                    </div>
-                </body>
-        
-    </body>
+    <nav>
+      <div class="dropdown">
+        <button class="mainmenubtn">Main menu</button>
+        <div class="dropdown-child">
+          <a href="index.html">Home</a>
+          <a href="aboutPage.html">About</a>
+          <a href="searchPage.html">Search Black Professionals</a>
+          <a href="submitPage.html">Submit A Black Business For Referral</a>
+        </div>
+      </div>
+    </nav>
+    <div class="logo">
+      <img src="siteImages/networkImage.png" alt="handshake" />
+    </div>
+    <form>
+      <input type="text" name="Business Name" placeholder="Business Name" required>
+      <input type="text" name="Business Type" placeholder="Dentist" required>
+      <input type="text" name="Phone Number" placeholder="777-777-7777" required>
+      <input type="text" name="email" placeholder="businessEmail@gmail.com" required>
+      <input type="text" name="location" placeholder="123 Toothfairy Way" required>
+    </form>
+  </body>
+</html>

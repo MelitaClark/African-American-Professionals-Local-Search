@@ -9,8 +9,8 @@ body{
   overflow: scroll;
   margin: 0;
   text-align: center;
-    
 }
+
 .grid ul{
     width: 100%;
     display: grid;
@@ -62,14 +62,15 @@ li{
     border-radius: 50%;
     background:  rgb(194, 215, 210);
     margin-top: 2%;
+    border: 5px double black;
 }
 .welcomeText{
     text-align: center;
     border: 10px double rgb(0, 0, 0);
     padding-left: 40px;
     padding-right: 40px;
-    margin-left: 5%;
-    margin-right: 5%;
+    margin-left: 15%;
+    margin-right: 15%;
     background: rgb(176, 172, 172);
     overflow: auto;
 
@@ -78,7 +79,7 @@ li{
     text-align: center;
     color: rgb(36, 36, 145);
     text-transform: uppercase;
-    font-size: 30px;
+    font-size: 16px;
     margin-top: 2%;
 }
 .welcomeText a{
@@ -99,7 +100,13 @@ li{
 }
 
 /*The Responsive Design...*/
+@media(min-width: 1024px){
+    .logo img{
+        width: 150px;
+        height: auto;
 
+    }
+}
 @media (max-width: 768px) {
     .nav-area li{
        display: block;
