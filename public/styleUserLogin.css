@@ -1,5 +1,3 @@
-@import "compass/css3";
-
 * {
 	box-sizing: border-box;
 }
@@ -15,7 +13,10 @@
 #userDirection{
     text-align: center;
     color: rgb(99, 99, 151);
-    margin-top: 30%;
+    margin-top: 20%;
+    background:white;
+    margin-left: 20%;
+    margin-right: 20%;
     
 }
 
@@ -31,25 +32,14 @@ body {
 
 .collectUser {
   	height: 105px;
-    margin-top: 10%;
+    margin-top: 2%;
     margin-right: auto;
       display: block;
       text-align: center;
       
 }
   
-.collectUser ::after {
- 		/*border-radius: 100%;
-    	box-shadow: 0 -10px 10px 0 rgba(0,0,0,0.3);*/
-    	content: "";
-        left: 15px;
-        display: block;
-        text-align: center;
-    	/*position: absolute;*/
-    	height: 10px;
-    	top: 109px;
-    	width: 320px;
-    }
+
 
 
 form {
@@ -67,24 +57,14 @@ form {
       
     
 }
-  form ::after {
-    background: #e5e8e7;
-  	content: "";
-    height: 50px;
-    position: absolute;
-    top: 80px;
-    width: 350px;
-    z-index: 999;
-  }
+ 
 
 
 input {
 	border-radius: 5px;
   height: 34px;
   padding: 0;
-  
-  
-}
+  }
 
 input {
   background: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.3));
@@ -94,20 +74,14 @@ input {
   padding-left: 10px;
   width: 240px;
   appearance: none;
+  color:white;
 }
-input[type="email"] ::after -webkit-input-placeholder {
-  	color: rgba(0,0,0,0.6);
-  }
+
+::placeholder {
+    color: white;
+
+}
   
-  input[type="email"] ::after moz-input-placeholder {
-  	color: rgba(0,0,0,0.6);
-  }
-  
-  input[type="email"] ::after focus {
-  	  background: linear-gradient(#d1d5d2, #fefefe);
-    	box-shadow: 0 1px 0 rgba(247, 132, 132, 0.5);
-    	outline: none;
-  }
 
 
 input[type="button"] {
@@ -116,7 +90,7 @@ input[type="button"] {
   box-shadow: inset 0 1px 3px rgba(255,255,255,0.4),
     								0 1px 2px rgba(0,0,0,0.45);
   color: #fff;
-  display: inline-block;
+  display: block;
   font-weight: bold;
 	height: 35px;
   margin-left: 5px;
@@ -129,7 +103,8 @@ input[type="button"]::after hover {
   
   input[type="button"]::after active {
   	box-shadow: inset 0 1px 2px rgba(0,0,0,0.45),
-      								0 1px 3px rgba(255,255,255,0.4);
+                                      0 1px 3px rgba(255,255,255,0.4);
+                                      
   }
 
 
