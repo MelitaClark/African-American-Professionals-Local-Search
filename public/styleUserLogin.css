@@ -4,29 +4,48 @@
 	box-sizing: border-box;
 }
 
-html {
-	background-color: #e5e8e7;
-  height: 100%;
-  overflow: hidden;
-  width: 100%;
+#backButton{
+    background: rgb(89, 112, 244);
+    color: white;
+    padding-bottom: 1%;
+    padding-right: 1%;
+    margin-right: 70%;
+    
+}
+#userDirection{
+    text-align: center;
+    color: rgb(99, 99, 151);
+    margin-top: 30%;
+    
 }
 
-.coming-soon {
+body {
+	background:url('siteImages/wall.jpg');
+    background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  overflow: scroll;
+  margin: 0;
+  text-align: center;
+}
+
+.collectUser {
   	height: 105px;
-		left: 50%;
-  	margin-left: -256px;
-  	margin-top: -36px;
-  	overflow: hidden;
-  	position: absolute;
-      top: 50%;
+    margin-top: 10%;
+    margin-right: auto;
+      display: block;
+      text-align: center;
+      
 }
   
-.coming-soon ::after {
- 		border-radius: 100%;
-    	box-shadow: 0 -10px 10px 0 rgba(0,0,0,0.3);
+.collectUser ::after {
+ 		/*border-radius: 100%;
+    	box-shadow: 0 -10px 10px 0 rgba(0,0,0,0.3);*/
     	content: "";
-    	left: 15px;
-    	position: absolute;
+        left: 15px;
+        display: block;
+        text-align: center;
+    	/*position: absolute;*/
     	height: 10px;
     	top: 109px;
     	width: 320px;
@@ -40,8 +59,13 @@ form {
   	box-shadow: inset 0 1px 3px rgba(255,255,255,0.4),
     									0 1px 3px rgba(0,0,0,0.45);
   	padding: 10px;
-  	position: relative;
-  	animation: appear 1.5s ease;
+  	/*position: relative;*/
+      animation: appear 1.5s ease;
+      display: inline-block;
+      margin-left: auto;
+      margin-right: auto;
+      
+    
 }
   form ::after {
     background: #e5e8e7;
@@ -58,9 +82,11 @@ input {
 	border-radius: 5px;
   height: 34px;
   padding: 0;
+  
+  
 }
 
-input[type="email"] {
+input {
   background: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.3));
 	border: 1px solid rgba(0,0,0,0.48);
   box-shadow: inset 0 1px 2px rgba(0,0,0,0.4),
