@@ -13,7 +13,7 @@ mongoose.Promise = global.Promise;
 // config.js is where we control constants for entire
 // app like PORT and DATABASE_URL
 const { PORT, DATABASE_URL } = require("./config");
-const { Referrals } = require("./models");
+const { Referrals, USER} = require("./models");
 
 const app = express();
 app.use(express.json());
@@ -64,18 +64,20 @@ app.post("/referrals", (req, res) => {
       return res.status(400).send(message);
     }
   }
+  //});
 
 
 const referrals = new Referrals(req.body);
 //referrals.save().then(res.send(referrals))
 
   Referrals.create({
+    //userLogin: req.body.userLogin,
     business_type: req.body.business_type,
     business_name: req.body.business_name,
     phone_number: req.body.phone_number,
     email: req.body.email,
-    location: req.body.location//,
-    //reviews: req.body.reviews
+    location: req.body.location,
+    reviews: req.body.reviews
   })
    .then(referrals => res.status(201).json(referrals.serialize()))
     .catch(err => {
@@ -83,7 +85,7 @@ const referrals = new Referrals(req.body);
       res.status(500).json({ message: "Internal server error" });
     });
    
-});
+  });
 
 app.put("/referrals/:id", (req, res) => {
   // ensure that the id in the request path and the one in request body match
@@ -107,7 +109,8 @@ app.put("/referrals/:id", (req, res) => {
     }
   });
 
-  referrals
+  //referrals
+  Referrals
     // all key/value pairs in toUpdate will be updated -- that's what `$set` does
     .findByIdAndUpdate(req.params.id, { $set: toUpdate })
     .then(referrals => res.status(204).end())
@@ -116,14 +119,75 @@ app.put("/referrals/:id", (req, res) => {
 
 app.delete("/referrals/:id", (req, res) => {
   Referrals.findByIdAndRemove(req.params.id)
-    .then(referrals => res.status(204).end())
-    .catch(err => res.status(500).json({ message: "Internal server error" }));
+  .then(() => {
+    res.status(204).json({ message: 'success' });
+})
+.catch(err => {
+  console.error(err);
+  res.status(500).json({ error: 'something went terribly wrong' });
 });
+});
+
+  /*.then(referrals => res.status(201).json(referrals.serialize()))
+    .catch(err => {
+      console.error(err);
+      res.status(500).json({ message: "Internal server error" });
+    });*/
+  
+   
+    //post a new user
+app.post('/newUser', (req, res)=> {
+  const requiredFields = ["userFirst_name","userLast_name", "user_email", "userName"];
+  for (let i = 0; i < requiredFields.length; i++) {
+    const field = requiredFields[i];
+    if (!(field in req.body)) {
+      const message = `Missing \`${field}\` in request body`;
+      console.error(message);
+      return res.status(400).send(message);
+    }
+  };
+
+  USER
+  .findOne({userName: req.body.userName})
+  .then(user =>{
+    if(user){
+      const message = 'User Login Alread Exists';
+      console.error(message);
+      return res.status(400).send(message);
+    }
+    else{
+      USER
+      .create({
+        userFirst_name:req.body.userFirst_name,
+        userLast_name:req.body.userLast_name,
+        user_email: req.body.user_email,
+        userName:req.body.userName
+      
+      })
+      .then(user =>res.status(201).json({
+        _id:user.id,
+        name: `${user.userFirst_name} ${user.userLast_name}`,
+        user_email: user.user_email,
+        userName: user. userName
+      }))
+      .catch(err => {
+        console.error(err);
+        res.status(500).json({ error: 'Something went wrong' });
+      });
+  }
+})
+.catch(err => {
+  console.error(err);
+  res.status(500).json({ error: 'something went horribly awry' });
+});
+});
+
 
 // catch-all endpoint if client makes request to non-existent endpoint
 app.use("*", function(req, res) {
   res.status(404).json({ message: "Not Found" });
 });
+
 
 // closeServer needs access to a server object, but that only
 // gets created when `runServer` runs, so we declare `server` here
@@ -131,13 +195,9 @@ app.use("*", function(req, res) {
 let server;
 
 // this function connects to our database, then starts the server
-function runServer(DATABASE_URL
-  , port = PORT) {
+function runServer(DATABASE_URL, port = PORT) {
   return new Promise((resolve, reject) => {
-    mongoose.connect(
-      DATABASE_URL
-      ,
-      err => {
+    mongoose.connect(DATABASE_URL, err => {
         if (err) {
           return reject(err);
         }
@@ -170,11 +230,11 @@ function closeServer() {
     });
   });
 }
-
+  
 // if server.js is called directly (aka, with `node server.js`), this block
 // runs. but we also export the runServer command so other code (for instance, test code) can start the server as needed.
 if (require.main === module) {
   runServer(DATABASE_URL).catch(err => console.error(err));
 }
-
+  
 module.exports = { app, runServer, closeServer };

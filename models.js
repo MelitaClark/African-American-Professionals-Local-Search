@@ -1,7 +1,20 @@
 const mongoose = require("mongoose");
+mongoose.Promise = global.Promise;
+//this is my schemat to represent a user
+const userSchema = mongoose.Schema({
+  
+    userFirst_name:{ type: String, required: true },
+    userLast_name:{ type: String, required: true },
+    user_email:{ type: String, required: true },
+    userName:{type: String, unique:true, required: true}
+  
+});
 
-// this is our schema to represent a restaurant
+// this is our schema to represent a referral
+const reviewSchema = mongoose.Schema({ content: 'string' });
+
 const referralsSchema = mongoose.Schema({
+  
   business_type: { type: String, required: true },
   business_name: { type: String, required: true },
   phone_number: { type: String, required: true },
@@ -12,8 +25,8 @@ const referralsSchema = mongoose.Schema({
     city: String,
     state: String,
     zipcode: String
-  }//,
-  //reviews: [{ user_1: String, required: true, reviewText: String }]
+  },//,
+  reviews: [reviewSchema]
 });
 
 // *virtuals* (http://mongoosejs.com/docs/guide.html#virtuals)
@@ -40,6 +53,7 @@ const referralsSchema = mongoose.Schema({
 referralsSchema.methods.serialize = function() {
   return {
     id: this._id,
+    //userLogin: this.userLogin,
     business_type: this.business_type,
     business_name: this.business_name,
     phone_number: this.phone_number,
@@ -51,6 +65,7 @@ referralsSchema.methods.serialize = function() {
 
 // note that all instance methods and virtual properties on our
 // schema must be defined *before* we make the call to `.model`.
+const USER = mongoose.model('USER', userSchema);
 const Referrals = mongoose.model("Referrals", referralsSchema);
 
-module.exports = { Referrals };
+module.exports = { Referrals, USER };
