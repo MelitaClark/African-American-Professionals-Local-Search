@@ -9,7 +9,7 @@ const mongoose = require('mongoose');
 // this module
 const expect = chai.expect;
 
-const {Restaurant} = require('../models');
+const { Referrals} = require('../models');
 const {app, runServer, closeServer} = require('../server');
 const {TEST_DATABASE_URL} = require('../config');
 
@@ -20,54 +20,53 @@ chai.use(chaiHttp);
 // we use the Faker library to automatically
 // generate placeholder values for author, title, content
 // and then we insert that data into mongo
-function seedRestaurantData() {
-  console.info('seeding restaurant data');
+function seedReferralsData() {
+  console.info('seeding referrals data');
   const seedData = [];
 
   for (let i=1; i<=10; i++) {
-    seedData.push(generateRestaurantData());
+    seedData.push(generateReferralsData());
   }
   // this will return a promise
-  return Restaurant.insertMany(seedData);
+  return Referrals.insertMany(seedData);
 }
 
 // used to generate data to put in db
-function generateBoroughName() {
-  const boroughs = [
-    'Manhattan', 'Queens', 'Brooklyn', 'Bronx', 'Staten Island'];
-  return boroughs[Math.floor(Math.random() * boroughs.length)];
+function generatebusiness_type() {
+  const businesses = [
+    'Dentist', 'Doctor', 'Web Developer', 'Handyman', 'Photographer'];
+  return businesses[Math.floor(Math.random() * businesses.length)];
 }
 
 // used to generate data to put in db
-function generateCuisineType() {
-  const cuisines = ['Italian', 'Thai', 'Colombian'];
-  return cuisines[Math.floor(Math.random() * cuisines.length)];
+function generateBusiness_name() {
+  const nameOfBus = ['Jennys Dental', 'Doctor Don', 'Handy-Manny', 'Click-take-a-Pic'];
+  return nameOfBus[Math.floor(Math.random() * nameOfBus.length)];
 }
 
 // used to generate data to put in db
-function generateGrade() {
-  const grades = ['A', 'B', 'C', 'D', 'F'];
-  const grade = grades[Math.floor(Math.random() * grades.length)];
-  return {
-    date: faker.date.past(),
-    grade: grade
-  };
-}
+function generatePhone() {
+  const phone = ['973-222-2222', '974-222-2223', '975-222-2224', '976-222-2225'];
+  const phone = phone[Math.floor(Math.random() * phone.length)];
+  return phone[Math.floor(Math.random() * phone.length)];
+    
+  }
 
-// generate an object represnting a restaurant.
+
+// generate an object represnting a referral.
 // can be used to generate seed data for db
 // or request.body data
-function generateRestaurantData() {
+function generateReferralsData() {
   return {
-    name: faker.company.companyName(),
-    borough: generateBoroughName(),
-    cuisine: generateCuisineType(),
-    address: {
-      building: faker.address.streetAddress(),
-      street: faker.address.streetName(),
-      zipcode: faker.address.zipCode()
-    },
-    grades: [generateGrade(), generateGrade(), generateGrade()]
+    business_type: generatebusiness_type(),
+    business_name: generateBusiness_name(),
+    phone_number: generatePhone(),
+    location: {
+      street: faker.location.streetAddress(),
+      city: faker.location.cityName(),
+      zipcode: faker.location.zipCode()
+    }
+
   };
 }
 
@@ -81,7 +80,7 @@ function tearDownDb() {
   return mongoose.connection.dropDatabase();
 }
 
-describe('Restaurants API resource', function() {
+describe('Referrals API resource', function() {
 
   // we need each of these hook functions to return a promise
   // otherwise we'd need to call a `done` callback. `runServer`,
@@ -92,7 +91,7 @@ describe('Restaurants API resource', function() {
   });
 
   beforeEach(function() {
-    return seedRestaurantData();
+    return seedReferralsData();
   });
 
   afterEach(function() {
@@ -108,7 +107,7 @@ describe('Restaurants API resource', function() {
   // on proving something small
   describe('GET endpoint', function() {
 
-    it('should return all existing restaurants', function() {
+    it('should return all existing referrals', function() {
       // strategy:
       //    1. get back all restaurants returned by by GET request to `/restaurants`
       //    2. prove res has right status, data type
@@ -119,14 +118,14 @@ describe('Restaurants API resource', function() {
       // `.then()` calls below, so declare it here so can modify in place
       let res;
       return chai.request(app)
-        .get('/restaurants')
+        .get('/referrals')
         .then(function(_res) {
           // so subsequent .then blocks can access response object
           res = _res;
           expect(res).to.have.status(200);
           // otherwise our db seeding didn't work
-          expect(res.body.restaurants).to.have.lengthOf.at.least(1);
-          return Restaurant.count();
+          expect(res.body.referrals).to.have.lengthOf.at.least(1);
+          return Referrals.count();
         })
         .then(function(count) {
           expect(res.body.restaurants).to.have.lengthOf(count);
@@ -134,35 +133,34 @@ describe('Restaurants API resource', function() {
     });
 
 
-    it('should return restaurants with right fields', function() {
+    it('should return referrals with right fields', function() {
       // Strategy: Get back all restaurants, and ensure they have expected keys
 
-      let resRestaurant;
+      let resReferrals;
       return chai.request(app)
-        .get('/restaurants')
+        .get('/referrals')
         .then(function(res) {
           expect(res).to.have.status(200);
           expect(res).to.be.json;
-          expect(res.body.restaurants).to.be.a('array');
-          expect(res.body.restaurants).to.have.lengthOf.at.least(1);
+          expect(res.body.referrals).to.be.a('array');
+          expect(res.body.referrals).to.have.lengthOf.at.least(1);
 
-          res.body.restaurants.forEach(function(restaurant) {
-            expect(restaurant).to.be.a('object');
-            expect(restaurant).to.include.keys(
-              'id', 'name', 'cuisine', 'borough', 'grade', 'address');
+          res.body.referrals.forEach(function(referrals) {
+            expect(referrals).to.be.a('object');
+            expect(referrals).to.include.keys(
+              'id', 'business_type', 'business_name', 'phone_number', 'location');
           });
-          resRestaurant = res.body.restaurants[0];
-          return Restaurant.findById(resRestaurant.id);
+          resReferrals = res.body.referrals[0];
+          return Referrals.findById(resReferrals.id);
         })
-        .then(function(restaurant) {
+        .then(function(referrals) {
 
-          expect(resRestaurant.id).to.equal(restaurant.id);
-          expect(resRestaurant.name).to.equal(restaurant.name);
-          expect(resRestaurant.cuisine).to.equal(restaurant.cuisine);
-          expect(resRestaurant.borough).to.equal(restaurant.borough);
-          expect(resRestaurant.address).to.contain(restaurant.address.building);
-
-          expect(resRestaurant.grade).to.equal(restaurant.grade);
+          expect(resReferrals.id).to.equal(referrals.id);
+          expect(resReferrals.business_type).to.equal(referrals.business_type);
+          expect(resReferrals.business_name).to.equal(referrals.business_name);
+          expect(resReferrals.phone_number).to.equal(referrals.phone_number);
+          expect(resReferrals.location).to.contain(referrals.location.city);
+          
         });
     });
   });
@@ -172,40 +170,33 @@ describe('Restaurants API resource', function() {
     // then prove that the restaurant we get back has
     // right keys, and that `id` is there (which means
     // the data was inserted into db)
-    it('should add a new restaurant', function() {
+    it('should add a new referral', function() {
 
-      const newRestaurant = generateRestaurantData();
-      let mostRecentGrade;
+      const newReferral = generateReferralsData();
 
       return chai.request(app)
-        .post('/restaurants')
-        .send(newRestaurant)
+        .post('/referrals')
+        .send(newReferral)
         .then(function(res) {
           expect(res).to.have.status(201);
           expect(res).to.be.json;
           expect(res.body).to.be.a('object');
           expect(res.body).to.include.keys(
-            'id', 'name', 'cuisine', 'borough', 'grade', 'address');
-          expect(res.body.name).to.equal(newRestaurant.name);
+            'id', 'business_type', 'business_name', 'phone_number', 'location');
+          expect(res.body.business_type).to.equal(newReferral.business_type);
           // cause Mongo should have created id on insertion
           expect(res.body.id).to.not.be.null;
-          expect(res.body.cuisine).to.equal(newRestaurant.cuisine);
-          expect(res.body.borough).to.equal(newRestaurant.borough);
-
-          mostRecentGrade = newRestaurant.grades.sort(
-            (a, b) => b.date - a.date)[0].grade;
-
-          expect(res.body.grade).to.equal(mostRecentGrade);
-          return Restaurant.findById(res.body.id);
+          expect(res.body.business_name).to.equal(newReferral.business_name);
+          expect(res.body.phone_number).to.equal(newReferral.phone_number);
+          expect(res.body.location).to.equal(newReferral.location);
         })
         .then(function(restaurant) {
-          expect(restaurant.name).to.equal(newRestaurant.name);
-          expect(restaurant.cuisine).to.equal(newRestaurant.cuisine);
-          expect(restaurant.borough).to.equal(newRestaurant.borough);
-          expect(restaurant.grade).to.equal(mostRecentGrade);
-          expect(restaurant.address.building).to.equal(newRestaurant.address.building);
-          expect(restaurant.address.street).to.equal(newRestaurant.address.street);
-          expect(restaurant.address.zipcode).to.equal(newRestaurant.address.zipcode);
+          expect(restaurant.business_type).to.equal(newReferral.business_type);
+          expect(restaurant.business_name).to.equal(newReferral.business_name);
+          expect(restaurant.phone_number).to.equal(newReferral.phone_number);
+          expect(restaurant.location.street).to.equal(newReferral.location.street);
+          expect(restaurant.location.city).to.equal(newReferral.location.city);
+          expect(restaurant.location.zipcode).to.equal(newReferral.location.zipcode);
         });
     });
   });
@@ -219,55 +210,55 @@ describe('Restaurants API resource', function() {
     //  4. Prove restaurant in db is correctly updated
     it('should update fields you send over', function() {
       const updateData = {
-        name: 'fofofofofofofof',
-        cuisine: 'futuristic fusion'
+        business_type: 'fofofofofofofof',
+        business_name: 'futuristic fusion'
       };
 
-      return Restaurant
+      return Referrals
         .findOne()
-        .then(function(restaurant) {
-          updateData.id = restaurant.id;
+        .then(function(referrals) {
+          updateData.id = referrals.id;
 
           // make request then inspect it to make sure it reflects
           // data we sent
           return chai.request(app)
-            .put(`/restaurants/${restaurant.id}`)
+            .put(`/referrals/${referrals.id}`)
             .send(updateData);
         })
         .then(function(res) {
           expect(res).to.have.status(204);
 
-          return Restaurant.findById(updateData.id);
+          return Referrals.findById(updateData.id);
         })
-        .then(function(restaurant) {
-          expect(restaurant.name).to.equal(updateData.name);
-          expect(restaurant.cuisine).to.equal(updateData.cuisine);
+        .then(function(referals) {
+          expect(referals.business_type).to.equal(updateData.business_type);
+          expect(referals.business_name).to.equal(updateData.business_name);
         });
     });
   });
 
   describe('DELETE endpoint', function() {
     // strategy:
-    //  1. get a restaurant
-    //  2. make a DELETE request for that restaurant's id
+    //  1. get a referrals
+    //  2. make a DELETE request for that referral's id
     //  3. assert that response has right status code
     //  4. prove that restaurant with the id doesn't exist in db anymore
     it('delete a restaurant by id', function() {
 
-      let restaurant;
+      let referral;
 
-      return Restaurant
+      return Referrals
         .findOne()
-        .then(function(_restaurant) {
-          restaurant = _restaurant;
-          return chai.request(app).delete(`/restaurants/${restaurant.id}`);
+        .then(function(_referral) {
+          referral = _restaurant;
+          return chai.request(app).delete(`/referrals/${referral.id}`);
         })
         .then(function(res) {
           expect(res).to.have.status(204);
-          return Restaurant.findById(restaurant.id);
+          return Referrals.findById(referral.id);
         })
-        .then(function(_restaurant) {
-          expect(_restaurant).to.be.null;
+        .then(function(_referral) {
+          expect(_referral).to.be.null;
         });
     });
   });
