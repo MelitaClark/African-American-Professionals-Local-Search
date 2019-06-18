@@ -22,12 +22,57 @@
     <div class="logo">
       <img src="siteImages/networkImage.png" alt="handshake" />
     </div>
-    <form>
+
+    <div class="referral-background">
+      <form class="submit_Referral" id="submit_Referral" action="/referrals" accept-charset="UTF-8" method="post">
+        <input name="utf8" type="hidden" value="✓">
+        <input type="hidden" name="authenticity_token" value="2LzFvLEjLOea9sO1VjvIAeBMGutQyzfs+anbTaCttVMX24DE9PC+Pp2x8pBP1C9nSHZaAYTX8HM5fYLHCLt3KA==">
+        <p class="referral-title">Refer A Black Business Service You Love Here!</p>
+        <div class="full-form">
+          
+          <div class="signup-card panel">
+            <div class="form-container">
+              <div class="form-group">
+                <label for="firstName">Business Name</label>
+                <input class="referral-form-control form-control" placeholder="Business Name" required="required" type="text">
+              </div>
+              <div class="form-group">
+                <label for="lastName">Business Type</label>
+                <input class="referral-form-control form-control" placeholder="Business Type" required="required" type="text" >
+              </div>
+              <div class="form-group">
+                <label for="lastName">Phone Number</label>
+                <input class="referral-form-control form-control" placeholder="Phone Numer" required="required" type="tel" >
+              </div>
+              <div class="form-group">
+                <label for="email">Email Address</label>
+                <input class="referral-form-control form-control" placeholder="Email" required="required" type="email" >
+              </div>
+              <div class="form-group">
+                <label for="email">Location</label><br>
+                  <input id="street" placeholder="Street" required="required" type="text">
+                  <input id="city" placeholder="City" required="required" type="text">
+                  <input id="state" placeholder="State" required="required" type="text">
+                  <input id="zipcode" placeholder="zipcode" required="required" type="number">
+                </select>
+              </div>
+              <div class="form-group">
+                <label id="writeReview">Write A Review</label>
+                <div class="justified">
+                    <textarea rows="4" cols="50"placeholder="Write Your Review Of This Business" type ="text"></textarea>
+              </div>
+             
+          <button type="submit" class="next-button">Submit</button>
+        </div>
+      </form>
+
+
+    <!--<form>
       <input type="text" name="Business Name" placeholder="Business Name" required>
       <input type="text" name="Business Type" placeholder="Dentist" required>
       <input type="text" name="Phone Number" placeholder="777-777-7777" required>
       <input type="text" name="email" placeholder="businessEmail@gmail.com" required>
       <input type="text" name="location" placeholder="123 Toothfairy Way" required>
-    </form>
+    </form> -->
   </body>
 </html>

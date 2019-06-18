@@ -12,7 +12,7 @@
 }
 .dropdown-child {
     display: none;
-    background-color: black;
+    background-color: rgb(117, 112, 112);
     min-width: 200px;
 }
 .dropdown-child a {

@@ -1,3 +1,10 @@
+body {
+     background-image: url("siteImages/cityscape.jpg");
+     text-align: center;
+  }
+nav{
+    float: left;
+}
 .mainmenubtn {
     background-color:rgb(95, 121, 148);
     color: white;
@@ -12,8 +19,9 @@
 }
 .dropdown-child {
     display: none;
-    background-color: black;
+    background-color: rgb(117, 112, 112);
     min-width: 200px;
+
 }
 .dropdown-child a {
     color: white;
@@ -24,3 +32,89 @@
 .dropdown:hover .dropdown-child {
     display: block;
 }
+
+  .navbar-logo{
+    float: right;
+  }
+  .logo img{
+    width: 100px;
+    height: auto;
+    margin: 10px auto 20px;
+    display: block;
+    border-radius: 50%;
+    background:  rgb(194, 215, 210);
+    margin-top: 2%;
+    border: 5px double black;
+}
+  .submit_Referral{
+    background: #8b9397;
+    display: inline-block;
+    padding: 2%;
+  }
+  
+  .signup-card {
+    margin: 0 auto;
+    border-radius: 6px;
+    background-color: #FFFFFF;
+    box-shadow: 0 8px 10px 0 rgba(69, 71, 72, 1);
+    max-width: 320px;
+  }
+  
+  
+  
+  .full-form {
+    margin: auto;
+    max-width: 320px;
+  }
+  
+  .form-container {
+    padding: 32px 32px 16px 32px;
+  }
+  
+  .referral-form-control {
+    border: 0;
+    border-bottom: 1px solid #8b9397 !important;
+    border-radius: 0;
+    /* -webkit-appearance: none; */
+    -webkit-box-shadow: 0;
+    box-shadow: none;
+    padding: 6px 0px;
+    color: #3F464C;
+  }
+  
+  
+  .next-button {
+    display: block;
+    margin: 15px auto 40px auto;
+    border: 0;
+    height: 64px;
+    width: 64px;
+    border-radius: 100px;
+    background-color: #E87C24;
+    box-shadow: 0 8px 10px 0 rgba(69, 71, 72, 1);
+  }
+  
+  .next-arrow {
+    color: #FFFFFF;
+    font-size: 32px;
+  }
+  
+
+  
+  .referral-title {
+    text-align: center;
+    font-size: 24px;
+    color: #FFFFFF;
+    margin-bottom: 25px;
+  }
+  #writeReview{
+      padding-top: 2%;
+  }
+  div.justified {
+    display: flex;
+    justify-content: center;
+    padding-top: 2%;
+}
+
+ 
+  
