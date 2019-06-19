@@ -2,15 +2,7 @@
 	box-sizing: border-box;
 }
 
-#backButton{
-    background: rgb(89, 112, 244);
-    color: white;
-    padding-bottom: 1%;
-    padding-right: 1%;
-    margin-right: 70%;
-    
-}
-#userDirection{
+/*#userDirection{
     text-align: center;
     color: rgb(99, 99, 151);
     margin-top: 20%;
@@ -18,7 +10,7 @@
     margin-left: 20%;
     margin-right: 20%;
     
-}
+}*/
 
 body {
 	background:url('siteImages/wall.jpg');
@@ -29,87 +21,103 @@ body {
   margin: 0;
   text-align: center;
 }
+.signin-register {
+  background: rgba(154, 159, 165, 0.7);
+  padding: 40px;
+  width: auto;
+  margin: auto;
+  margin-top: 90px;
+  /* height: 400px; */
+  height: auto;
+  margin-left: 180x;
+  border-radius: 5px;
+  display: inline-block;
 
-.collectUser {
-  	height: 105px;
-    margin-top: 2%;
-    margin-right: auto;
-      display: block;
-      text-align: center;
-      
 }
-  
 
-
-
-form {
-  	background: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.3));
-  	border: 1px solid rgba(0,0,0,0.3);
-  	border-radius: 6px;
-  	box-shadow: inset 0 1px 3px rgba(255,255,255,0.4),
-    									0 1px 3px rgba(0,0,0,0.45);
-  	padding: 10px;
-  	/*position: relative;*/
-      animation: appear 1.5s ease;
-      display: inline-block;
-      margin-left: auto;
-      margin-right: auto;
-      
-    
-}
- 
-
-
-input {
-	border-radius: 5px;
-  height: 34px;
-  padding: 0;
-  }
-
-input {
-  background: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.3));
-	border: 1px solid rgba(0,0,0,0.48);
-  box-shadow: inset 0 1px 2px rgba(0,0,0,0.4),
-    								0 1px 0 rgba(255,255,255,0.5);
-  padding-left: 10px;
+.signin-form,
+.register-form {
   width: 240px;
-  appearance: none;
-  color:white;
+  text-align: center;
+}
+
+.form-input {
+  width: 240px;
+  text-align: center;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #fff;
+  font-family: 'Play', sans-serif;
+  font-size: 16px;
+  font-weight: 200px;
+  padding: 10px 0;
+  transition: border 0.5s;
+  outline: none;
+  color: #fff;
+  border-radius: 5px;
+}
+.login-button[type=submit] {
+  border: none;
+  width: 190px;
+  background: white;
+  color: #000;
+  font-size: 16px;
+  line-height: 25px;
+  padding: 10px 0;
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+.login-button[type=submit]:hover {
+  color: #fff;
+  background-color: black;
+}
+/* for register.html specific styles*/
+.register-button {
+  border: none;
+  width: 190px;
+  background: white;
+  color: #000;
+  font-size: 16px;
+  line-height: 25px;
+  padding: 10px 0;
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+.register-button:hover {
+  color: #fff;
+  background-color: black;
+}
+
+h2 {
+  color: white;
+
+}
+
+a {
+  color: yellow;
+  text-decoration: blink;
+}
+
+a:hover {
+  color: skyblue;
+}
+
+#goBackHome{
+  color: rgb(47, 47, 88);
+}
+#goBackHome:hover{
+  color: skyblue;
+}
+.container {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
 }
 
 ::placeholder {
-    color: white;
+  color: aliceblue;
+  opacity: 0.8;
 
 }
-  
-
-
-input[type="button"] {
-  background: linear-gradient(#58a9e2, #346cce);
-  border: 1px solid rgba(0,0,0,0.48);
-  box-shadow: inset 0 1px 3px rgba(255,255,255,0.4),
-    								0 1px 2px rgba(0,0,0,0.45);
-  color: #fff;
-  display: block;
-  font-weight: bold;
-	height: 35px;
-  margin-left: 5px;
-  text-shadow: 0 -1px 0 rgba(0,0,0,0.2);
-  width: 76px;
-}
-input[type="button"]::after hover {
-  	background: linear-gradient(#6db1e1, #4375cc);
-  }
-  
-  input[type="button"]::after active {
-  	box-shadow: inset 0 1px 2px rgba(0,0,0,0.45),
-                                      0 1px 3px rgba(255,255,255,0.4);
-                                      
-  }
-
-
-
-
-
-
-

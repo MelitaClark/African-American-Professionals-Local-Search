@@ -8,23 +8,20 @@
     <link href="styleUserLogin.css"  rel="stylesheet" type="text/css" />
 </head>
 <body>
-    <div id="goBack">
-        <a id="backButton" href="index.html">&lt &lt &lt Back</a>
-        </div>
-    <div id= userDirection>Please Login To Be Directed To The Referral Form</div>
     
-<div class="collectUser">
-        <form>
-        <input type="name" placeholder="First Name"required  autocomplete="on">
-        <input type="name" placeholder="Last Name"required  autocomplete="on">
-          <input type="email" placeholder="hello@youremailhere.com"required  autocomplete="on">
-          <input type="userName" placeholder="User Name"required  autocomplete="on">
-         <input type="password" placeholder="Password" id="myInput">
-<!-- An element to toggle between password visibility -->
-<input type="checkbox" onclick="myFunction()">Show Password
-          <a href="submitPage.html"><input type="button" value="Sign In"  ></a>
-        </form>
-      </div>
+        <div class="signin-register">
+                <form class="signin-form">
+                <h2 class="header">Log In</h2>
+                <input class="form-input"id="username" type="text" name="username" placeholder="Username"/><br /><br />
+                <input class="form-input" id="password" type="password" name="password" placeholder="Password" /><br /><br />
+                <button class="login-button"type="submit">Log In</button><br /><br />
+                
+                Don't have account?<a href="register.html" class="register" style="font-family:'Play', sans-serif;">&nbsp;Sign Up</a><br /><br />
+                <a id="goBackHome" href="index.html">Go Back</a>
+                
+                </form>
+                </div>
+        
       <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
       <script src="script.js"></script>
       <script src="scriptHomePage.js"></script>

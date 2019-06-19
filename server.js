@@ -5,6 +5,9 @@ const mongoose = require("mongoose");
 const morgan = require('morgan');
 const passport = require('passport');
 
+const { router: usersRouter } = require('./users');
+const { router: authRouter, localStrategy, jwtStrategy } = require('./auth');
+
 
 // Mongoose internally uses a promise-like object,
 // but its better to make Mongoose use built in es6 promises
@@ -22,6 +25,8 @@ app.use(express.json());
 app.use(morgan('common'));
 
 app.use(express.static('public'));
+
+
 
 app.get('/', (req, res) => {
   res.sendFile(__dirname + '/public/index.html');
@@ -184,6 +189,34 @@ app.post('/newUser', (req, res)=> {
 });
 
 
+// CORS
+app.use(function (req, res, next) {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Headers', 'Content-Type,Authorization');
+  res.header('Access-Control-Allow-Methods', 'GET,POST,PUT,PATCH,DELETE');
+  if (req.method === 'OPTIONS') {
+    return res.send(204);
+  }
+  next();
+});
+
+passport.use(localStrategy);
+passport.use(jwtStrategy);
+
+const jwtAuth = passport.authenticate('jwt', { session: false });
+
+
+app.use('/api/users/', usersRouter);
+app.use('/api/auth/', authRouter);
+
+
+
+// A protected endpoint which needs a valid JWT to access it
+app.get('/api/protected', jwtAuth, (req, res) => {
+  return res.json({
+    data: 'rosebud'
+  });
+});
 // catch-all endpoint if client makes request to non-existent endpoint
 app.use("*", function(req, res) {
   res.status(404).json({ message: "Not Found" });
