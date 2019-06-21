@@ -1,3 +1,6 @@
+* {
+    box-sizing: border-box;
+  }
 body {
      background-image: url("siteImages/cityscape.jpg");
      text-align: center;

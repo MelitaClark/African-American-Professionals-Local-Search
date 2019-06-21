@@ -1,26 +1,69 @@
-.mainmenubtn {
-    background-color:rgb(95, 121, 148);
-    color: white;
-    border: none;
-    cursor: pointer;
-    padding:20px;
-    margin-top:20px;
+* {
+  box-sizing: border-box;
 }
-.dropdown {
-    position: relative;
-    display: inline-block;
+body {
+  background: url("siteImages/woodSkyBackground.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  overflow: scroll;
+  margin: 0;
+  text-align: center;
 }
-.dropdown-child {
-    display: none;
-    background-color: rgb(117, 112, 112);
-    min-width: 200px;
+
+.grid ul{
+    width: 100%;
+    display: grid;
+    position: center;
+    grid-template-columns: repeat(4,1fr);
+    grid-gap: 15px;
+    
+   
+
 }
-.dropdown-child a {
-    color: white;
-    padding: 20px;
+
+.nav-area{
+    text-align: center;
+    list-style: none;
+    margin-top: 1%;
+    
+}
+.nav-area li{
+display: grid;
+
+    
+}
+.nav-area li a{
+    color:rgb(36, 36, 145);
     text-decoration: none;
-    display: block;
+    padding: 5px 20px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 16px;
+    border: 1px solid black;
+    border-radius: 25px;
+    padding: 2% ;
+    text-transform: uppercase;
+   
+    
+    
 }
-.dropdown:hover .dropdown-child {
-    display: block;
+.nav-area li a:hover{
+    background: rgb(212, 223, 219);
+    color: #333;
+}
+li{
+    margin: 2% 2% 2% 2%;
+}
+p{
+    margin: 0 auto;
+    border-radius: 6px;
+    background-color: #3F464C;
+    color: white;
+    box-shadow: 0 8px 10px 0 rgba(69, 71, 72, 1);
+    max-width: 320px;
+    margin: auto;
+    max-width: 320px;
+    padding: 32px 32px 16px 32px;
+    
+    
 }

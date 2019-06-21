@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>African American Local Services Search (AALSS)</title>
+    <title>African American Local Professional Services Search (AALPSS)</title>
     <link href="style.css"  rel="stylesheet" type="text/css" />
 </head>
 
@@ -25,7 +25,7 @@
                 </nav>
 <div class="wrapper">
 <section class="flexbox-container1">
-    <h1 role="banner" id="flexItem1">Search African American Local Services</h1>
+    <h1 role="banner" id="flexItem1">Search African American Local Professional Services</h1>
     <img id="flexItem2" src="siteImages/networkImage.png" alt="Web page logo, two hands shaking, implying working together" height="100" width="150">
 </section>  
     <!--The Verticalbar-->
@@ -41,16 +41,23 @@
     </div>
 
     <!--Input Form Content-->
-    <div class="container">
-        <form id="inputForm">
-                <h2 id="formTitle">What Type Of Local African American Service Are You Looking For?</h1>
-                    <div class="flexbox-container2" id="inputFields">
-                        <input class="flexbox-item" id="flexbox-item1" type="text" placeholder="Enter Service (i.e.,Doctor)" required>
-                        <input class="flexbox-item" id="flexbox-item2" id="location" placeholder="Enter Zipcode" required>
-                        <button type="button" class="flexbox-item" id="flexbox-item3">Submit</button>
+
+    
+                    <div class="searchReferrals">
+            
+                        <form class="search-form">
+                            <h3 class="header">What Type Of Local African American Professional Service Are You Looking For?</h2>
+                            <input class="form-input" id="serviceType" type="text" name="serviceType" placeholder="Enter Service (i.e.,Doctor)"><br><br>
+                            <input class="form-input" id="locationType" type="text" name="Zipcode" placeholder="Enter Zipcode"><br><br>
+                            <input class="form-input" id="locationCity" type="text" name="locationCity" placeholder="Enter City"><br><br>
+                            <input class="form-input" id="locationState" type="text" name="locationState" placeholder="Enter State"><br><br>
+                            <input class="searchReferrals-button" type="button" value="Get Referrals!"><br><br>
+                            <h3 id="searchAllText">Or Click the link below to search all referrals.</h3><br><br>
+                            <a href="userLogin.html">Show Me All Referrals</a>
+                        </form>
                     </div>
-                </form>
-            </div> <!--Container Closed-->
+              
+            
         </div>
             <!--Results Content-->
     <section hidden id="myResults">
@@ -62,18 +69,19 @@
                     </div>
     </section>
     <!-- FOOTER -->
-    <footer class="flex-footer">
+  <!--  <footer class="flex-footer">
 
         <div class="container">
 
 
         </div>
 
-    </footer>
+    </footer> -->
 
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     
     <script src="script.js"></script>
+    <script src="config.js"></script>
 </body>
 
 </html>

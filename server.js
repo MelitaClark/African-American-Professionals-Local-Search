@@ -26,14 +26,15 @@ app.use(morgan('common'));
 
 app.use(express.static('public'));
 
+//Code for Requests...
 
-
+//send a GET request for static html
 app.get('/', (req, res) => {
   res.sendFile(__dirname + '/public/index.html');
   
 });
 
-// GET requests to /referrals 
+//send a GET request to /referrals to READ a list of referrals
 app.get("/referrals", (req, res) => {
   Referrals.find()  
     .then(referrals => {
@@ -47,7 +48,7 @@ app.get("/referrals", (req, res) => {
     });
 });
 
-// can also request by ID
+//send a GET request to /referrals/:id to READ(view) a quote
 app.get("/referrals/:id", (req, res) => {
   referrals
     // this is a convenience method Mongoose provides for searching
@@ -60,6 +61,7 @@ app.get("/referrals/:id", (req, res) => {
     });
 });
 
+//send a POST request to /referrals to CREATE a new referral
 app.post("/referrals", (req, res) => {
   const requiredFields = ["business_type", "business_name", "location"];
   for (let i = 0; i < requiredFields.length; i++) {
@@ -74,7 +76,7 @@ app.post("/referrals", (req, res) => {
 
 
 const referrals = new Referrals(req.body);
-//referrals.save().then(res.send(referrals))
+
 
   Referrals.create({
     //userLogin: req.body.userLogin,
@@ -92,7 +94,7 @@ const referrals = new Referrals(req.body);
     });
    
   });
-
+//send a PUT request to /referrals/:id to UPDATE (edit) a referral
 app.put("/referrals/:id", (req, res) => {
   // ensure that the id in the request path and the one in request body match
   if (!(req.params.id && req.body.id && req.params.id === req.body.id)) {
@@ -115,7 +117,6 @@ app.put("/referrals/:id", (req, res) => {
     }
   });
 
-  //referrals
   Referrals
     // all key/value pairs in toUpdate will be updated -- that's what `$set` does
     .findByIdAndUpdate(req.params.id, { $set: toUpdate })
@@ -134,14 +135,8 @@ app.delete("/referrals/:id", (req, res) => {
 });
 });
 
-  /*.then(referrals => res.status(201).json(referrals.serialize()))
-    .catch(err => {
-      console.error(err);
-      res.status(500).json({ message: "Internal server error" });
-    });*/
-  
    
-    //post a new user
+ //Code for User route - post a new user
 app.post('/newUser', (req, res)=> {
   const requiredFields = ["userFirst_name","userLast_name", "user_email", "userName"];
   for (let i = 0; i < requiredFields.length; i++) {

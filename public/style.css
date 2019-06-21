@@ -4,8 +4,12 @@
 body{
     background-image: url("siteImages/cityscape.jpg");
     background-repeat: no-repeat; /* Do not repeat the image */
-    background-size: cover; /* Resize the background image to cover the entire container */
-    height: 100vh;
+    background-size: cover;
+  height: 100vh;
+  overflow: scroll;
+  margin: 0;
+    text-align: center;
+    
 }
 .mainmenubtn {
     background-color:rgb(95, 121, 148);
@@ -16,8 +20,9 @@ body{
     margin-top:20px;
 }
 .dropdown {
-    position: absolute;
-    display: inline-block;
+    position: relative;
+   /* display: inline-block;*/
+   float: left;
 }
 .dropdown-child {
     display: none;
@@ -38,6 +43,7 @@ body{
     flex-direction: column;
      justify-content: center;
      align-items: center;
+    
     
 }
  .flexbox-container1{
@@ -61,9 +67,16 @@ body{
     margin-right: 20px;
     text-align: center;
 }
-#flexbox-item2{
-    width: 40%;
-    text-align: center;
+img{
+        width: 100px;
+        height: auto;
+        margin: 10px auto 20px;
+        display: block;
+        border-radius: 50%;
+        background:  rgb(194, 215, 210);
+        margin-top: 2%;
+        border: 5px double black;
+
 }
 /*#flexbox-item3{
 
@@ -91,17 +104,111 @@ ul {
   #examples{
       text-align: center;
   }
-  form{
-      background: rgb(143, 152, 160);
-      padding-bottom: 40px;
+  .searchReferrals{
+    background: rgba(154, 159, 165, 0.7);
+    padding: 40px;
+    width: auto;
+    margin: auto;
+    margin-top: 1%;
+    height: auto;
+    margin-left: 20%;
+    margin-right: 20%;
+    border-radius: 5px;
+    display: inline-block;
+    margin-bottom: 0;
+   color: white;
+    box-shadow: 0 8px 10px 0 rgba(69, 71, 72, 1);
+    max-width: 450px;
+    padding: 32px 32px 16px 32px;
+  
   }
-  #formTitle{
-      text-align: center;
+  
+  
+  .form-input {
+    width: 240px;
+    text-align: center;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #fff;
+    font-family: 'Play', sans-serif;
+    font-size: 16px;
+    font-weight: 200px;
+    padding: 10px 0;
+    transition: border 0.5s;
+    outline: none;
+    color: #fff;
+    border-radius: 5px;
+  }
+  .search-button[type=submit] {
+    border: none;
+    width: 190px;
+    background: white;
+    color: #000;
+    font-size: 16px;
+    line-height: 25px;
+    padding: 10px 0;
+    border-radius: 15px;
+    cursor: pointer;
+  }
+  
+  .search-button[type=submit]:hover {
+    color: #fff;
+    background-color: black;
+  }
+  /* for register.html specific styles*/
+  .searchReferrals-button{
+    border: none;
+    width: 190px;
+    background: white;
+    color: #000;
+    font-size: 16px;
+    line-height: 25px;
+    padding: 10px 0;
+    border-radius: 15px;
+    cursor: pointer;
+  }
+  
+  .searchReferrals-button:hover {
+    color: #fff;
+    background-color: black;
+  }
+  
+  h3 {
+    color: rgb(50, 46, 87);
+  
+  }
+  
+  a {
+    color: yellow;
+    text-decoration: blink;
+  }
+  
+  a:hover {
+    color: skyblue;
+  }
+  
+  #goBackHome{
+    color: rgb(47, 47, 88);
+  }
+  #goBackHome:hover{
+    color: skyblue;
+  }
+  .container {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+  }
+  
+  ::placeholder {
+    color: aliceblue;
+    opacity: 0.8;
+  
   }
 
-  .flex-footer{
+  /*.flex-footer{
       display: flex;
       align-items: center;
       align-content: center;
+      margin-bottom: 0 !important;
 
-  }
+  }*/
