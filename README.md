@@ -1,7 +1,7 @@
 # AAPLS
 African American Professionals Local Search tool
 
-link: https://melitaclark.github.io/African-American-Professionals-Local-Search/
+link: https://african-american-local-search.herokuapp.com/
 
 About: 
 
