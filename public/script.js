@@ -2,8 +2,9 @@ const DATABASE_URL = "/referrals"
 //const referrals = require('./config')
 $( document ).ready(
     function (){
-        $('.searchReferrals-button').click(generateReferrals)
+        $('.searchReferrals-button').click(generateReferrals);
 
+        
     }
 );
 
@@ -107,11 +108,18 @@ function templateMaker(data){
 
     })
 }
+
+
+
 function handleApp(){
     generateReferrals();
   
-}
+} */
 
-$(handleApp); */
+
+	
+
+
+//$(handleApp); 
 
 

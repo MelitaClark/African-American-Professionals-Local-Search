@@ -9,7 +9,31 @@
 </head>
 <body>
     <header>
-        <div class="grid">
+
+         <!--Overlay Menu-->
+    <section id="menuNav">
+         <div id="myNav" class="overlay">
+                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                <div class="overlay-content">
+                  <a href="index.html">Home</a>
+                  <a href="aboutPage.html">About</a>
+                  <a href="searchPage.html">Search Black Professionals</a>
+                  <a href="userLogin.html">Submit A Black Business For Referral</a>
+                </div>
+              </div>
+              <span  style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; MENU</span>
+
+              <script>
+              function openNav() {
+                document.getElementById("myNav").style.width = "100%";
+              }
+              
+              function closeNav() {
+                document.getElementById("myNav").style.width = "0%";
+              }
+              </script>
+              </section>
+       <!-- <div class="grid">
             
             <ul class="nav-area">
                 <li id="first"><a href="index.html">Home</a></li>
@@ -18,7 +42,7 @@
                             <li id="fourth"><a href="userLogin.html">Submit A Referral</a></li>
             </ul>
             
-        </div>
+        </div> -->
         <div class="logo">
             <img src="siteImages/networkImage.png" alt="handshake">
         </div>

@@ -7,10 +7,13 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>African American Local Professional Services Search (AALPSS)</title>
     <link href="style.css"  rel="stylesheet" type="text/css" />
+   
 </head>
 
 <body>
-        <nav>
+
+   
+     <!--  <nav>
                 <div class="dropdown">
                         <button class="mainmenubtn">Main menu</button>
                         <div class="dropdown-child">
@@ -22,7 +25,31 @@
                           
                         </div>
                       </div>
-                </nav>
+                </nav> -->
+                 <!--Overlay Menu-->
+    
+                 <div id="myNav" class="overlay">
+                        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                        <div class="overlay-content">
+                          <a href="index.html">Home</a>
+                          <a href="aboutPage.html">About</a>
+                          <a href="searchPage.html">Search Black Professionals</a>
+                          <a href="userLogin.html">Submit A Black Business For Referral</a>
+                        </div>
+                      </div>
+                      <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; MENU</span>
+
+                      <script>
+                      function openNav() {
+                        document.getElementById("myNav").style.width = "100%";
+                      }
+                      
+                      function closeNav() {
+                        document.getElementById("myNav").style.width = "0%";
+                      }
+                      </script>
+                           
+
 <div class="wrapper">
 <section class="flexbox-container1">
     <h1 role="banner" id="flexItem1">Search African American Local Professional Services</h1>
