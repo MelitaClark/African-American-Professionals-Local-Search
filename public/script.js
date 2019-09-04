@@ -29,14 +29,14 @@ function checkUserInput(service, zipcode,city,state){
         if (service.value == true){
             return data.referrals.business_type == serviceType;
         }
-        if (service.value == true){
+        if (zipcode.value == true){
             return data.referrals.location == locationType;
         }
-        if (service.value == true){
+        if (city.value == true){
             return data.referrals.location == locationCity;
 
         }
-        if (service.value == true){
+        if (state.value == true){
             return data.referrals.location == locationState;
 
         }
