@@ -26,18 +26,17 @@ function checkUserInput(service, zipcode,city,state){
     let locationCity= $('#locationCity').val();
     let locationState= $('locationState').val();
         //I'm trying to say, if it is true that there's a value in the input field, then return that value...
-       // if (service.value == true){
-           if(service.value =data.referrals.length || !0){
+        if (service.value == true){
             return data.referrals.business_type == serviceType;
         }
-        if (service.value =data.referrals.length || !0){
+        if (service.value == true){
             return data.referrals.location == locationType;
         }
-        if (service.value =data.referrals.length || !0){
+        if (service.value == true){
             return data.referrals.location == locationCity;
 
         }
-        if (service.value =data.referrals.length || !0){
+        if (service.value == true){
             return data.referrals.location == locationState;
 
         }
