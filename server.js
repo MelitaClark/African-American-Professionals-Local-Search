@@ -59,6 +59,8 @@ app.get("/referrals", (req, res) => {
     });
 });
 
+//send a GET request to /referrals/business_type to READ a list of referrals when business_types is called by user
+
 //send a GET request to /referrals/:id to READ(view) a quote
 app.get("/referrals/:id", (req, res) => {
   referrals

@@ -263,6 +263,9 @@ ul {
     opacity: 0.8;
   
   }
+  #resultsHeader{
+    overflow: scroll;
+  }
 
   /*.flex-footer{
       display: flex;
